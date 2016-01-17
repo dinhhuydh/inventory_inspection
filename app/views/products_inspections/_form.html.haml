@@ -1,5 +1,5 @@
 = form_for @products_inspection do |f|
-  = f.text_field :date
+  = f.date_field :date
   = f.select :area_id, options_for_select(Area.all.pluck(:name, :id)), prompt: 'Select area'
   = f.hidden_field :user_id
   %table
