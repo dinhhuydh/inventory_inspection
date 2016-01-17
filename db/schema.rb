@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116165153) do
+ActiveRecord::Schema.define(version: 20160117044116) do
+
+  create_table "product_items", force: true do |t|
+    t.integer  "products_inspection_id"
+    t.integer  "product_id"
+    t.integer  "total"
+    t.integer  "remainder"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "product_items", ["product_id"], name: "index_product_items_on_product_id"
+  add_index "product_items", ["products_inspection_id"], name: "index_product_items_on_products_inspection_id"
 
   create_table "products", force: true do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products_inspections", force: true do |t|
+    t.date     "date"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
