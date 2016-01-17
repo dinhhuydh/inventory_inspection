@@ -1,4 +1,6 @@
 class ProductsInspectionsController < ApplicationController
+  before_action :authenticate_user!
+
   expose(:products_inspections)
 
   def index
