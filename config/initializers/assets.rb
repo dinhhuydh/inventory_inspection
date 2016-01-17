@@ -8,6 +8,7 @@ Rails.application.config.assets.version = '1.0'
 
 # Prevent initializing the application before assets are precompiled (required for heroku)
 Rails.application.config.assets.initialize_on_precompile = false
+Rails.application.config.assets.compile = true
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
