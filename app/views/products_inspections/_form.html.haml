@@ -1,0 +1,16 @@
+= form_for @products_inspection do |f|
+  = f.text_field :date
+  -#= f.input :user_id, as: :hidden
+  %table
+    %thead
+      %th Product Name
+      %th Total
+      %th Remainder
+    %tbody
+      = f.fields_for :product_items do |item_f|
+        %tr
+          = item_f.hidden_field :product_id
+          %td= item_f.object.product.name
+          %td= item_f.text_field :total
+          %td= item_f.text_field :remainder
+  = f.submit

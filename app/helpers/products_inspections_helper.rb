@@ -1,0 +1,2 @@
+module ProductsInspectionsHelper
+end

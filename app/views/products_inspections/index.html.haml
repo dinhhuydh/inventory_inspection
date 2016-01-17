@@ -1,0 +1,10 @@
+= link_to 'Create', new_products_inspection_path
+%table
+  %thead
+    %th Date
+    %th Inspector
+  %tbody
+  - products_inspections.each do |inspection|
+    %tr
+      %td= link_to inspection.date, edit_products_inspection_path(inspection)
+      %td= inspection.user.try(:email)

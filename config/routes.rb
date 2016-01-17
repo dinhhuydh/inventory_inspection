@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   #
   resources :products, only: [:index]
+  resources :products_inspections
 
   # You can have the root of your site routed with "root"
-  root 'products#index'
+  root 'products_inspections#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
