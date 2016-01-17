@@ -1,6 +1,7 @@
 = form_for @products_inspection do |f|
   = f.text_field :date
-  -#= f.input :user_id, as: :hidden
+  = f.select :area_id, options_for_select(Area.all.pluck(:name, :id)), prompt: 'Select area'
+  = f.hidden_field :user_id
   %table
     %thead
       %th Product Name
@@ -14,3 +15,5 @@
           %td= item_f.text_field :total
           %td= item_f.text_field :remainder
   = f.submit
+
+= link_to 'Back', products_inspections_path

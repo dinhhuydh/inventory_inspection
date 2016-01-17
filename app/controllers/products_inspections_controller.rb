@@ -10,7 +10,7 @@ class ProductsInspectionsController < ApplicationController
   end
 
   def new
-    @products_inspection = ProductsInspection.new(date: Date.current)
+    @products_inspection = ProductsInspection.new(user: current_user, date: Date.current)
     Product.all.each do |product|
       @products_inspection.product_items.build(product: product, total: 0, remainder: 0)
     end
@@ -39,6 +39,6 @@ class ProductsInspectionsController < ApplicationController
   private
 
   def inspection_params
-    params.require(:products_inspection).permit(:date, :product_items_attributes => [:id, :product_id, :total, :remainder])
+    params.require(:products_inspection).permit(:user_id, :date, :area_id, :product_items_attributes => [:id, :product_id, :total, :remainder])
   end
 end

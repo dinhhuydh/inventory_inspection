@@ -3,8 +3,10 @@
   %thead
     %th Date
     %th Inspector
+    %th Area
   %tbody
   - products_inspections.each do |inspection|
     %tr
       %td= link_to inspection.date, edit_products_inspection_path(inspection)
-      %td= inspection.user.try(:email)
+      %td= inspection.user.email
+      %td= inspection.area.try :name

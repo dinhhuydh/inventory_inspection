@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117044116) do
+ActiveRecord::Schema.define(version: 20160117100744) do
+
+  create_table "areas", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "product_items", force: true do |t|
     t.integer  "products_inspection_id"
@@ -36,7 +42,10 @@ ActiveRecord::Schema.define(version: 20160117044116) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "area_id"
   end
+
+  add_index "products_inspections", ["area_id"], name: "index_products_inspections_on_area_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
