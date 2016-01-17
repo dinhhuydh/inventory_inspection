@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'decent_exposure'
-gem 'rails_admin'
+gem 'rails_admin', :github => 'sferik/rails_admin'
 gem 'haml'
 
 # Use ActiveModel has_secure_password
