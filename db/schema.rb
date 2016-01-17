@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160117100744) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "areas", force: true do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 20160117100744) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "product_items", ["product_id"], name: "index_product_items_on_product_id"
-  add_index "product_items", ["products_inspection_id"], name: "index_product_items_on_products_inspection_id"
+  add_index "product_items", ["product_id"], name: "index_product_items_on_product_id", using: :btree
+  add_index "product_items", ["products_inspection_id"], name: "index_product_items_on_products_inspection_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 20160117100744) do
     t.integer  "area_id"
   end
 
-  add_index "products_inspections", ["area_id"], name: "index_products_inspections_on_area_id"
+  add_index "products_inspections", ["area_id"], name: "index_products_inspections_on_area_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -62,7 +65,7 @@ ActiveRecord::Schema.define(version: 20160117100744) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
