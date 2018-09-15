@@ -5,4 +5,8 @@ class Product < ActiveRecord::Base
   def test_method(a,b,c,d)
     puts 'aa'
   end
+
+  def test_hound(a,b,c,d)
+    puts 'aaa'
+  end
 end
