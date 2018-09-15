@@ -21,4 +21,8 @@ class Product < ActiveRecord::Base
   def test_hound_5(a,b,c,d)
     puts 'aaa'
   end
+
+  def test_hound_6(a,b,c,d)
+    puts 'aaa'
+  end
 end
